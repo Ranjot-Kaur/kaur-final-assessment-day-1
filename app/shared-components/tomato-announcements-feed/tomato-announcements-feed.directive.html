@@ -14,9 +14,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="announcement in vm.announcements">
-                    <td>{{announcement.ID}}</td>
                     <td>{{announcement.Title}}</td>
-                    <td>{{announcement.Description}}</td>
+                    <td>{{announcement.Date | date:'MM/dd/yyyy'}}</td>
+                    <td><span class="{{announcement.Type.Icon}}"></span></td>
                     <td>{{announcement.ownerName}}</td>                    
                 </tr>
             </tbody>
