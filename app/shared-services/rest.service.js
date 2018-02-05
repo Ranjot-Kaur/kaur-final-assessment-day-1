@@ -11,7 +11,10 @@
         var service = {
             getTomatoes: getTomatoes,
             getFarms: getFarms,
-            getExerciseThreeData: getExerciseThreeData
+            getExerciseThreeData: getExerciseThreeData,
+            getAllAnnouncements: getAllAnnouncements,
+            getAllAnnouncementOwners: getAllAnnouncementOwners
+
         };
 
         return service;
@@ -42,8 +45,24 @@
                 return response.data;
             });
         }
+    
+        function getAllAnnouncements() {
+            return $http({
+                method: 'GET',
+                url: 'http://localhost:3000/announcements'
+            }).then(function(response) {
+                return response.data;
+            });
+        }
 
-        //Add your code here.
+        function getAllAnnouncementOwners() {
+            return $http({
+                method: 'GET',
+                url: 'http://localhost:3000/owners'
+            }).then(function(response) {
+                return response.data;
+            });
+        }
 
     }
 })();

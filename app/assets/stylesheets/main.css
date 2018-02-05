@@ -183,3 +183,16 @@ h1 {
  **************************************/
 
  /* Add Code Here */
+ .announcement-label{
+	 float: right;	 
+ }
+ .announcement-feed-container{
+	 margin:0 auto;
+	 width:65%; 	
+ }
+
+ .announcements-table{
+	height: 500px;
+	 overflow-y: scroll;
+ }
+ 
