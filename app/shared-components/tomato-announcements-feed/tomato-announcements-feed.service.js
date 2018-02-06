@@ -20,8 +20,9 @@
             var annArray = announcements;
             var ownerArray = owners;
             for(var i=0;i<annArray.length;i++){
-                for(var j=0;j<ownerArray.length;j++){
-                    if(annArray[i].ID == ownerArray[j].ID){
+                var j=0;
+                for(j=0;j<ownerArray.length;j++){
+                    if(annArray[i].OwnerID == ownerArray[j].ID){
                         annArray[i].ownerName = (ownerArray[j].Title);
                     }
                 }

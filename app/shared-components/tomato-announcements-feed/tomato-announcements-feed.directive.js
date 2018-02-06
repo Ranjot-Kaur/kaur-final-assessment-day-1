@@ -22,10 +22,11 @@
         return directive;
     }
  
-    tomatoAnnouncementsController.$inject = ['tomatoAnnouncementsFeedService'];
+    tomatoAnnouncementsController.$inject = ['tomatoAnnouncementsFeedService','$filter'];
  
-    function tomatoAnnouncementsController(tomatoAnnouncementsFeedService) {        
+    function tomatoAnnouncementsController(tomatoAnnouncementsFeedService,$filter) {        
         var vm = this; 
+        vm.type = 'All';
 
         //fetchData();
         getOwnerNames();
@@ -37,8 +38,22 @@
 
         function getOwnerNames(){
             vm.announcements = tomatoAnnouncementsFeedService.announcementsData(vm.announcements,vm.owners);
+            vm.announcementsData = angular.copy(vm.announcements);
         }
+        var titleArray = _.map(vm.announcements, function(d) { return d.Type.Title});
+        vm.types = _.uniq(titleArray);
+        vm.types.unshift('All');
 
+        vm.filterOnType = function(){
+            var announcementsClone = angular.copy(vm.announcementsData);
+            console.log(vm.type);
+            if(vm.type!='All'){
+                vm.announcements = $filter("filter")(announcementsClone,{Type:{Title:vm.type}});
+            }else{
+                vm.announcements = angular.copy(vm.announcementsData);
+            }            
+        }
+        
         
     }
  })();

@@ -191,8 +191,26 @@ h1 {
 	 width:65%; 	
  }
 
- .announcements-table{
-	height: 500px;
-	 overflow-y: scroll;
+ .announcements-table-body{
+	height: 530px;
+    overflow-y: auto;
+    display: block;
  }
+ .announcements-table tbody, .announcements-table thead
+{
+    display: block;
+}
+
+.announcements-table{
+    border: 1px solid #ddd;
+}
+
+.type-select{
+	width:35%;
+	float:right;
+	margin-bottom:10px;
+}
+
+
+
  
